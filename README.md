@@ -41,14 +41,32 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-ext-base-cindex-of-column
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import cindexOfColumn from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-cindex-of-column@esm/index.mjs';
+var cindexOfColumn = require( '@stdlib/blas-ext-base-cindex-of-column' );
 ```
 
 #### cindexOfColumn( order, M, N, A, LDA, x, strideX, workspace, strideW )
@@ -56,8 +74,8 @@ import cindexOfColumn from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-
 Returns the index of the first column in a single-precision complex floating-point input matrix which has the same elements as a provided search vector.
 
 ```javascript
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@esm/index.mjs';
-import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@esm/index.mjs';
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Uint8Array = require( '@stdlib/array-uint8' );
 
 /*
     A = [
@@ -88,8 +106,8 @@ The function has the following parameters:
 When an input matrix is stored in column-major order, the workspace parameter is ignored, and, thus, one may provide an empty workspace array.
 
 ```javascript
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@esm/index.mjs';
-import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@esm/index.mjs';
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Uint8Array = require( '@stdlib/array-uint8' );
 
 /*
     A = [
@@ -108,8 +126,8 @@ var out = cindexOfColumn( 'column-major', 2, 2, A, 2, x, 1, workspace, 1 );
 If the function is unable to find a matching column, the function returns `-1`.
 
 ```javascript
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@esm/index.mjs';
-import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@esm/index.mjs';
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Uint8Array = require( '@stdlib/array-uint8' );
 
 /*
     A = [
@@ -130,8 +148,8 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 <!-- eslint-disable stdlib/capitalized-comments -->
 
 ```javascript
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@esm/index.mjs';
-import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@esm/index.mjs';
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Uint8Array = require( '@stdlib/array-uint8' );
 
 // Initial arrays:
 var A0 = new Complex64Array( [ 0.0, 0.0, 1.0, 0.0, 2.0, 0.0, 0.0, 0.0 ] );
@@ -155,8 +173,8 @@ var out = cindexOfColumn( 'column-major', 2, 1, A1, 2, x1, 1, workspace, 1 );
 Returns the index of the first column in a single-precision complex floating-point input matrix which has the same elements as a provided search vector using alternative indexing semantics.
 
 ```javascript
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@esm/index.mjs';
-import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@esm/index.mjs';
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Uint8Array = require( '@stdlib/array-uint8' );
 
 /*
     A = [
@@ -190,8 +208,8 @@ The function has the following parameters:
 When an input matrix is stored in column-major order, the workspace parameter is ignored, and, thus, one may provide an empty workspace array.
 
 ```javascript
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@esm/index.mjs';
-import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@esm/index.mjs';
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Uint8Array = require( '@stdlib/array-uint8' );
 
 /*
     A = [
@@ -230,17 +248,12 @@ var out = cindexOfColumn.ndarray( 2, 2, A, 1, 2, 0, x, 1, 0, workspace, 1, 0 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@esm/index.mjs';
-import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@esm/index.mjs';
-import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-to-array@esm/index.mjs';
-import shape2strides from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-shape2strides@esm/index.mjs';
-import cindexOfColumn from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-cindex-of-column@esm/index.mjs';
+```javascript
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Uint8Array = require( '@stdlib/array-uint8' );
+var ndarray2array = require( '@stdlib/ndarray-base-to-array' );
+var shape2strides = require( '@stdlib/ndarray-base-shape2strides' );
+var cindexOfColumn = require( '@stdlib/blas-ext-base-cindex-of-column' );
 
 var shape = [ 2, 2 ];
 var order = 'row-major';
@@ -256,10 +269,6 @@ var workspace = new Uint8Array( shape[ 1 ] );
 
 var out = cindexOfColumn( order, shape[ 0 ], shape[ 1 ], A, strides[ 0 ], x, 1, workspace, 1 );
 console.log( out );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -268,7 +277,181 @@ console.log( out );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/blas/ext/base/cindex_of_column.h"
+```
+
+<!-- lint disable maximum-heading-length -->
+
+#### stdlib_strided_cindex_of_column( order, M, N, \*A, LDA, \*X, strideX, \*workspace, strideW )
+
+<!-- lint enable maximum-heading-length -->
+
+Returns the index of the first column in a single-precision complex floating-point input matrix which has the same elements as a provided search vector.
+
+```c
+#include "stdlib/complex/float32/ctor.h"
+#include "stdlib/blas/base/shared.h"
+#include <stdint.h>
+
+const float A[] = { 1.0f, 0.0f, 2.0f, 0.0f, 3.0f, 0.0f, 4.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+const float x[] = { 2.0f, 0.0f, 4.0f, 0.0f, 0.0f, 0.0f };
+uint8_t workspace[ 2 ];
+
+int idx = stdlib_strided_cindex_of_column( CblasRowMajor, 3, 2, (const stdlib_complex64_t *)A, 2, (const stdlib_complex64_t *)x, 1, workspace, 1 );
+// returns 1
+```
+
+The function accepts the following arguments:
+
+-   **order**: `[in] CBLAS_LAYOUT` storage layout.
+-   **M**: `[in] CBLAS_INT` number of rows in `A`.
+-   **N**: `[in] CBLAS_INT` number of columns in `A`.
+-   **A**: `[in] stdlib_complex64_t*` input matrix.
+-   **LDA**: `[in] CBLAS_INT` stride length for the first dimension of `A` (a.k.a., leading dimension of the matrix `A`).
+-   **X**: `[in] stdlib_complex64_t*` search vector.
+-   **strideX**: `[in] CBLAS_INT` stride length for `X`.
+-   **workspace**: `[inout] uint8_t*` workspace array for tracking column match candidates. This parameter is ignored if the function is provided an input matrix stored in column-major order.
+-   **strideW**: `[in] CBLAS_INT` stride length for `workspace`.
+
+When an input matrix is stored in column-major order, the workspace parameter is ignored, and, thus, one may either provide an empty workspace array or a `NULL` pointer.
+
+```c
+#include "stdlib/complex/float32/ctor.h"
+#include "stdlib/blas/base/shared.h"
+
+const float A[] = { 1.0f, 0.0f, 2.0f, 0.0f, 0.0f, 0.0f, 3.0f, 0.0f, 4.0f, 0.0f, 0.0f, 0.0f };
+const float x[] = { 3.0f, 0.0f, 4.0f, 0.0f, 0.0f, 0.0f };
+
+int idx = stdlib_strided_cindex_of_column( CblasColMajor, 3, 2, (const stdlib_complex64_t *)A, 3, (const stdlib_complex64_t *)x, 1, NULL, 1 );
+// returns 1
+```
+
+```c
+CBLAS_INT stdlib_strided_cindex_of_column( const CBLAS_LAYOUT order, const CBLAS_INT M, const CBLAS_INT N, const stdlib_complex64_t *A, const CBLAS_INT LDA, const stdlib_complex64_t *X, const CBLAS_INT strideX, uint8_t *workspace, const CBLAS_INT strideW );
+```
+
+<!-- lint disable maximum-heading-length -->
+
+#### stdlib_strided_cindex_of_column_ndarray( M, N, \*A, strideA1, strideA2, offsetA, \*X, strideX, offsetX, \*workspace, strideW, offsetW )
+
+<!-- lint enable maximum-heading-length -->
+
+Returns the index of the first column in a single-precision complex floating-point input matrix which has the same elements as a provided search vector using alternative indexing semantics.
+
+```c
+#include "stdlib/complex/float32/ctor.h"
+#include <stdint.h>
+
+const float A[] = { 1.0f, 0.0f, 2.0f, 0.0f, 3.0f, 0.0f, 4.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+const float x[] = { 2.0f, 0.0f, 4.0f, 0.0f, 0.0f, 0.0f };
+uint8_t workspace[ 2 ];
+
+int idx = stdlib_strided_cindex_of_column_ndarray( 3, 2, (const stdlib_complex64_t *)A, 2, 1, 0, (const stdlib_complex64_t *)x, 1, 0, workspace, 1, 0 );
+// returns 1
+```
+
+The function accepts the following arguments:
+
+-   **M**: `[in] CBLAS_INT` number of rows in `A`.
+-   **N**: `[in] CBLAS_INT` number of columns in `A`.
+-   **A**: `[in] stdlib_complex64_t*` input matrix.
+-   **strideA1**: `[in] CBLAS_INT` stride length for the first dimension of `A`.
+-   **strideA2**: `[in] CBLAS_INT` stride length for the second dimension of `A`.
+-   **offsetA**: `[in] CBLAS_INT` starting index for `A`.
+-   **X**: `[in] stdlib_complex64_t*` search vector.
+-   **strideX**: `[in] CBLAS_INT` stride length for `X`.
+-   **offsetX**: `[in] CBLAS_INT` starting index for `X`.
+-   **workspace**: `[inout] uint8_t*` workspace array for tracking column match candidates. This parameter is ignored if the function is provided an input matrix stored in column-major order.
+-   **strideW**: `[in] CBLAS_INT` stride length for `workspace`.
+-   **offsetW**: `[in] CBLAS_INT` starting index for `workspace`.
+
+When an input matrix is stored in column-major order, the workspace parameter is ignored, and, thus, one may either provide an empty workspace array or a `NULL` pointer.
+
+```c
+#include "stdlib/complex/float32/ctor.h"
+
+const float A[] = { 1.0f, 0.0f, 2.0f, 0.0f, 0.0f, 0.0f, 3.0f, 0.0f, 4.0f, 0.0f, 0.0f, 0.0f };
+const float x[] = { 3.0f, 0.0f, 4.0f, 0.0f, 0.0f, 0.0f };
+
+int idx = stdlib_strided_cindex_of_column_ndarray( 3, 2, (const stdlib_complex64_t *)A, 1, 3, 0, (const stdlib_complex64_t *)x, 1, 0, NULL, 1, 0 );
+// returns 1
+```
+
+```c
+CBLAS_INT stdlib_strided_cindex_of_column_ndarray( const CBLAS_INT M, const CBLAS_INT N, const stdlib_complex64_t *A, const CBLAS_INT strideA1, const CBLAS_INT strideA2, const CBLAS_INT offsetA, const stdlib_complex64_t *X, const CBLAS_INT strideX, const CBLAS_INT offsetX, uint8_t *workspace, const CBLAS_INT strideW, const CBLAS_INT offsetW );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/blas/ext/base/cindex_of_column.h"
+#include "stdlib/complex/float32/ctor.h"
+#include "stdlib/blas/base/shared.h"
+#include <stdio.h>
+
+int main( void ) {
+    // Create a matrix (column-major, 3x3, interleaved real and imaginary components):
+    const float A[] = { 1.0f, 0.0f, 2.0f, 0.0f, 0.0f, 0.0f, 3.0f, 0.0f, 4.0f, 0.0f, 0.0f, 0.0f, 5.0f, 0.0f, 6.0f, 0.0f, 0.0f, 0.0f };
+
+    // Create a search vector (interleaved real and imaginary components):
+    const float x[] = { 3.0f, 0.0f, 4.0f, 0.0f, 0.0f, 0.0f };
+
+    // Specify the number of matrix rows and columns:
+    const int M = 3;
+    const int N = 3;
+
+    // Perform a search:
+    int idx = stdlib_strided_cindex_of_column( CblasColMajor, M, N, (const stdlib_complex64_t *)A, M, (const stdlib_complex64_t *)x, 1, NULL, 1 );
+
+    // Print the result:
+    printf( "index value: %d\n", idx );
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -295,7 +478,7 @@ console.log( out );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -360,7 +543,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64/tree/esm
+[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64
 
 [mdn-uint8array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array
 
