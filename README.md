@@ -41,6 +41,8 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<!-- Package usage documentation. -->
+
 <section class="installation">
 
 ## Installation
@@ -229,16 +231,20 @@ var out = cindexOfColumn.ndarray( 2, 2, A, 1, 2, 0, x, 1, 0, workspace, 1, 0 );
 
 <!-- /.usage -->
 
+<!-- Package usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
 <section class="notes">
 
 ## Notes
 
 -   If `M <= 0` or `N <= 0`, both functions return `-1`.
--   When searching for a matching column, the function checks for equality using the strict equality operator `===`. As a consequence, `NaN` values are considered distinct, and `-0` and `+0` are considered the same.
+-   When searching for a matching column, the functions check for equality using the strict equality operator `===`. As a consequence, `NaN` values are considered distinct, and `-0` and `+0` are considered the same.
 
 </section>
 
 <!-- /.notes -->
+
+<!-- Package usage examples. -->
 
 <section class="examples">
 
@@ -253,6 +259,7 @@ var Complex64Array = require( '@stdlib/array-complex64' );
 var Uint8Array = require( '@stdlib/array-uint8' );
 var ndarray2array = require( '@stdlib/ndarray-base-to-array' );
 var shape2strides = require( '@stdlib/ndarray-base-shape2strides' );
+var logEach = require( '@stdlib/console-log-each' );
 var cindexOfColumn = require( '@stdlib/blas-ext-base-cindex-of-column' );
 
 var shape = [ 2, 2 ];
@@ -263,7 +270,7 @@ var A = new Complex64Array( [ 1.0, 0.0, 2.0, 0.0, 3.0, 0.0, 4.0, 0.0 ] );
 console.log( ndarray2array( A, shape, strides, 0, order ) );
 
 var x = new Complex64Array( [ 2.0, 0.0, 4.0, 0.0 ] );
-console.log( x );
+logEach( '%s', x );
 
 var workspace = new Uint8Array( shape[ 1 ] );
 
